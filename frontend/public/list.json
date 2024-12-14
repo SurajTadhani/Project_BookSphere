@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "name": "Story Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 0,
+    "category": "free",
+    "image": "https://img.freepik.com/free-vector/realistic-book-lover-composition-with-stack-colorful-books-with-eyeglasses-home-plants-tea-cup-vector-illustration_1284-77312.jpg?t=st=1719063793~exp=1719067393~hmac=99e5240c703fe68e1ba9d683568b9c79977804cfb96e2350d87df60d2f90b8af&w=826"
+  },
+  {
+    "id": 2,
+    "name": "Comic Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 0,
+    "category": "free",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1719835086~exp=1719838686~hmac=659129af8cdd2ec50689fb04667412b4594b7ed2de75c4e174d484caaad254bf&w=740"
+  },
+  {
+    "id": 3,
+    "name": "Action and Adventure Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 0,
+    "category": "free",
+    "image": "https://img.freepik.com/free-vector/text-books-library-isolated-icon_24877-83372.jpg?t=st=1719836685~exp=1719840285~hmac=728cc9192e751678aea3dc7b2cc3973bb61dd3cf8cf0833ec857c07ac9ae7af1&w=740"
+  },
+  {
+    "id": 4,
+    "name": "Classics Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 0,
+    "category": "free",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149334862.jpg?t=st=1719836810~exp=1719840410~hmac=ce16b50ce4d0834fbac1c5873bbd723c3756f66892b3f0b1a0c9bde10bd04791&w=740"
+  },
+  {
+    "id": 5,
+    "name": "Knowledgement Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 0,
+    "category": "free",
+    "image": "https://img.freepik.com/premium-vector/stack-books-shelf-cartoon-style-bookshelf-with-books-vector-illustration_490811-1533.jpg?w=740"
+  },
+  {
+    "id": 6,
+    "name": "Comic Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 500,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-world-book-day-illustration-with-stack-books_23-2148868267.jpg?t=st=1719836753~exp=1719840353~hmac=5be36b72eefc6073c2dcacace5782d6551500ea03cfbaf51a40ec1fe12dec5cd&w=740"
+  },
+  {
+    "id": 7,
+    "name": "Coding Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 300,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/text-books-library-isolated-icon_24877-83372.jpg?t=st=1719836685~exp=1719840285~hmac=728cc9192e751678aea3dc7b2cc3973bb61dd3cf8cf0833ec857c07ac9ae7af1&w=740"
+  },
+  {
+    "id": 8,
+    "name": "receipts Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 200,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719836788~exp=1719840388~hmac=4c3d58a0570f2f8f744d58fbbbbf5bfd2a9d3685a13ff9a6ee1ab984c7d9f4a1&w=740"
+  },
+  {
+    "id": 9,
+    "name": "Romance Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 80,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-book-spine-illustration_23-2149341900.jpg?t=st=1719836805~exp=1719840405~hmac=1d9e1394d9c0fde2727768e9ac5947ceb9ef76d37ff7c9e6c2c0d65e1269ab4d&w=740"
+  },
+  {
+    "id": 10,
+    "name": "Science Fiction  Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 100,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341897.jpg?t=st=1719836820~exp=1719840420~hmac=78f09a7ee20d0602921e6cffdb74333e2f2ed660d60b96a267948012bf689223&w=740"
+  },
+  {
+    "id": 11,
+    "name": "Graphic Novel",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 200,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149331950.jpg?t=st=1720268074~exp=1720271674~hmac=9ab92310ced8c5ae9ead58f2ace5dc0031a4942da5558385576cbb08f0ac738e&w=1060"
+  },
+  {
+    "id": 12,
+    "name": "Historical Fiction Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 180,
+    "category": "paid",
+    "image": "https://img.freepik.com/premium-vector/hand-drawn-flat-design-book-spine-illustration_23-2149343532.jpg?w=740"
+  },
+  {
+    "id": 13,
+    "name": "Romance Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 95,
+    "category": "paid",
+    "image": "https://img.freepik.com/premium-photo/ebook-reader-books-tablet-3d-render-image-white_268321-2083.jpg?w=1380"
+  },
+  {
+    "id": 14,
+    "name": "Science Fiction  Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 180,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149343540.jpg?t=st=1720267967~exp=1720271567~hmac=869627c29d7acc9cb10fae904e495e564f34a34105297670550625a0d09f8a46&w=740"
+  },
+  {
+    "id": 15,
+    "name": "Graphic Novel",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 135,
+    "category": "paid",
+    "image": "https://img.freepik.com/premium-photo/ebook-audio-learning-languages-books-3d-render-no-shadow_268321-2002.jpg?w=826"
+  },
+  {
+    "id": 16,
+    "name": "Horror Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 140,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/arrangement-with-books-plant_23-2148917251.jpg?t=st=1720267864~exp=1720271464~hmac=933f8d7da7d3a814ba9d55405885f621a6fe6c05c6d5b08ac769f61eced3f3f3&w=826"
+  },
+  {
+    "id": 17,
+    "name": "Literary Fiction Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 150,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/biology-subject-arrangement-with-insects_23-2149048973.jpg?t=st=1720267819~exp=1720271419~hmac=16c96495990a58832cdc3df2407e5143158dad0883176848ad7a54b49cf133e9&w=1060"
+  },
+  {
+    "id": 18,
+    "name": "Detective and Mystery Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 85,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/3d-view-books_23-2150473310.jpg?t=st=1720267774~exp=1720271374~hmac=a5e1d24dc053adbf18ef96ce00e843b9af4375a4d488ddff816e3e2b1c4c3878&w=900"
+  },
+  {
+    "id": 19,
+    "name": "Graphic Novel",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 55,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/stack-books-black-wooden-table_93675-135345.jpg?t=st=1720267708~exp=1720271308~hmac=74754457e1bde1ecf9881cbf5fe6aeb482273a7173863ceda2f4056408c30654&w=1060"
+  },
+  {
+    "id": 20,
+    "name": "Fantasy Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 100,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/stack-books-black-wooden-table_93675-135159.jpg?t=st=1720267491~exp=1720271091~hmac=b4dc3be5b13b96eb5142a41422c96453d8448753c2249df9796fca2af56162a3&w=1060"
+  },
+  {
+    "id": 21,
+    "name": "Education Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 25,
+    "category": "paid",
+    "image": "https://img.freepik.com/premium-photo/stack-books-apple-tabletop-against-white-background_93675-114668.jpg?w=1060"
+  },
+  {
+    "id": 22,
+    "name": "Graphic Novel",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 65,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/3d-view-books-cartoon-style_52683-117189.jpg?t=st=1720267059~exp=1720270659~hmac=021ddbf10f0528d5c7d5e632eef82542ce3bcc85622cb39b2eb1380ab43458e4&w=740"
+  },
+  {
+    "id": 23,
+    "name": "Literary Fiction Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 130,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/organized-vertical-books_1101-119.jpg?t=st=1720267592~exp=1720271192~hmac=561afec12ced6e127a229a519dce0c3fd387c2948c487f06be358ccd05a15a70&w=740"
+  },
+  {
+    "id": 24,
+    "name": "Historical Fiction Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 120,
+    "category": "paid",
+    "image": "https://img.freepik.com/premium-photo/black-white-martial-arts-belt-stack-books-study-martial-arts-aikido-karate-judo-body-mind-development_681788-80.jpg?w=1060"
+  },
+  {
+    "id": 25,
+    "name": "Education Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 70,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/stack-books-black-wooden-table_93675-135413.jpg?t=st=1720267462~exp=1720271062~hmac=cfa3e3f8617c0dc2ae0cc1771566ad5c34f8d215b95d17f906c43b8a595ca5e5&w=1060"
+  },
+  {
+    "id": 26,
+    "name": "Detective and Mystery Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 170,
+    "category": "paid",
+    "image": "https://img.freepik.com/premium-vector/preparing-exams-illustration-with-graduation-cap-books-coffee-alarm-clock_469123-51.jpg?w=1060"
+  },
+  {
+    "id": 27,
+    "name": "Horror Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 180,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-photo/book-white-background_9975-6517.jpg?t=st=1720268202~exp=1720271802~hmac=2a4368a282edae3a54534a2f13339e0268ffacb76a157d52677da1de5467dbfc&w=740"
+  },
+  {
+    "id": 28,
+    "name": "Detective and Mystery Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 190,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/modern-education-concept-with-isometric-view_23-2147913961.jpg?t=st=1720268227~exp=1720271827~hmac=4613d09a71e9884a531166ad525e69b07b7a2067f0b813b2fc4a3ba54f98775b&w=740"
+  },
+  {
+    "id": 29,
+    "name": "Historical Fiction Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 140,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/isometric-education-concept-background_23-2148116521.jpg?t=st=1720268273~exp=1720271873~hmac=52c87c22b7bf2132ca98751ad27a9278fb886728834bec2cf9d988686d49f238&w=740"
+  },
+  {
+    "id": 30,
+    "name": "Education Book",
+    "title": "Lorem, ipsum dolor sit amet consectetur adipisicing elit",
+    "price": 210,
+    "category": "paid",
+    "image": "https://img.freepik.com/free-vector/isometric-education-illustration_23-2148074419.jpg?t=st=1720268294~exp=1720271894~hmac=b8680c6221e186f63fa15b6f42b19b6384c1e7e0a56f613c6473d41a06032af9&w=740"
+  }
+]
