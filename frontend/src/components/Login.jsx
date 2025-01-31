@@ -21,7 +21,9 @@ function Login() {
       password: data.password,
     };
     await axios
-      .post("https://project-book-sphere-backend.vercel.app/user/login", userInfo)
+      .post("https://project-book-sphere-backend.vercel.app/user/login", userInfo,{
+        withCredentials: true,  // Remove if your backend does not use authentication
+    })
       .then((response) => {
         console.log(response.data);
         if (response.data) {

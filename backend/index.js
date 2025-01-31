@@ -15,14 +15,30 @@ const PORT = process.env.PORT || 4000;
 // Use Express
 const app = express();
 
-
-app.use(express.json());
+const allowedOrigins = [
+  "http://localhost:5173",  // ✅ Allow frontend during local development
+  "https://project-book-sphere.vercel.app"  // ✅ Allow production frontend
+];
 
 app.use(cors({
-  origin: "https://project-book-sphere-backend.vercel.app/", 
-  methods: "GET,POST,PUT,DELETE",
-  credentials: true 
+  origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+      } else {
+          callback(new Error("Not allowed by CORS"));
+      }
+  },
+  methods: "GET, POST, PUT, DELETE, OPTIONS",
+  credentials: true // ✅ Allow cookies/sessions
 }));
+
+// ✅ Handle Preflight (OPTIONS) requests
+app.options("*", cors());
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 
 // Connect MongoDB
 const MongoDb = process.env.MongoDb_Url;

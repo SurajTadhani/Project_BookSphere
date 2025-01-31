@@ -18,7 +18,9 @@ const Contact = () => {
       message: data.message,
     };
     try {
-      await axios.post("https://project-book-sphere-backend.vercel.app/api/contact", userContact);
+      await axios.post("https://project-book-sphere-backend.vercel.app/api/contact", userContact,{
+        withCredentials: true,  // Remove if your backend does not use authentication
+    });
       console.log(data);
 
       toast.success("Message sent successfully!");
