@@ -25,7 +25,7 @@ function Signup() {
       password: data.password,
     };
     await axios
-      .post("http://localhost:5200/user/signup", userInfo)
+      .post("https://project-book-sphere-backend.vercel.app/user/signup", userInfo)
       .then((response) => {
         console.log(response.data);
         if (response.data) {

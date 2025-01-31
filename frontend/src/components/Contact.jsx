@@ -18,7 +18,7 @@ const Contact = () => {
       message: data.message,
     };
     try {
-      await axios.post("http://localhost:5200/api/contact", userContact);
+      await axios.post("https://project-book-sphere-backend.vercel.app/api/contact", userContact);
       console.log(data);
 
       toast.success("Message sent successfully!");

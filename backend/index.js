@@ -15,8 +15,14 @@ const PORT = process.env.PORT || 4000;
 // Use Express
 const app = express();
 
-app.use(cors());
+
 app.use(express.json());
+
+app.use(cors({
+  origin: "https://project-book-sphere-backend.vercel.app/", 
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true 
+}));
 
 // Connect MongoDB
 const MongoDb = process.env.MongoDb_Url;
