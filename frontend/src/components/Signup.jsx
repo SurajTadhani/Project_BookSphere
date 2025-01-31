@@ -25,11 +25,12 @@ function Signup() {
       password: data.password,
     };
     await axios
-      .post("http://localhost:4001/user/signup", userInfo)
+      .post("http://localhost:5200/user/signup", userInfo)
       .then((response) => {
         console.log(response.data);
         if (response.data) {
           toast.success("Signup Successfully!");
+          
           navigate(from, {replace : true});
         }
         localStorage.setItem("Users", JSON.stringify(response.data.user));
@@ -49,19 +50,19 @@ function Signup() {
             <form method="dialog" onSubmit={handleSubmit(onSubmit)}>
               <Link
                 to="/"
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:text-black"
               >
                 ✕
               </Link>
-              <h3 className="font-bold text-lg">Signup</h3>
+              <h3 className="font-bold text-lg dark:text-black">Signup</h3>
               {/* Name */}
               <div className="mt-4 space-y-2">
-                <span>Name</span>
+                <span className="dark:text-black">Name</span>
                 <br />
                 <input
                   type="text"
                   placeholder="Enter Your Name"
-                  className="w-96 px-3 py-1 rounded-md outline-none"
+                  className="w-96 px-3 py-1 rounded-md outline-none dark:text-black dark:border"
                   {...register("fullname", { required: true })}
                 />
                 <br />
@@ -72,12 +73,12 @@ function Signup() {
 
               {/* Email */}
               <div className="mt-4 space-y-2">
-                <span>Email</span>
+                <span className="dark:text-black">Email</span>
                 <br />
                 <input
                   type="email"
                   placeholder="Enter Your Email"
-                  className="w-96 px-3 py-1 rounded-md outline-none"
+                  className="w-96 px-3 py-1 rounded-md outline-none dark:text-black dark:border"
                   {...register("email", { required: true })}
                 />
                 <br />
@@ -88,12 +89,12 @@ function Signup() {
 
               {/* Password */}
               <div className="mt-4 space-y-2">
-                <span>Password</span>
+                <span className="dark:text-black">Password</span>
                 <br />
                 <input
                   type="password"
                   placeholder="Enter Password"
-                  className="w-96 px-3 py-1 rounded-md outline-none"
+                  className="w-96 px-3 py-1 rounded-md outline-none dark:text-black dark:border"
                   {...register("password", { required: true })}
                 />
                 <br />
@@ -106,7 +107,7 @@ function Signup() {
                   <button className="bg-blue-500 text-white rounded-md px-3 py-1 hover:bg-blue-700 duration-500">
                     Signup
                   </button>
-                  <p className="text-xl">
+                  <p className="text-xl dark:text-black">
                     Have account?{" "}
                     <button
                       className="underline text-blue-500 cursor-pointer"

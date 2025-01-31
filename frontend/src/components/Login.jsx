@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Signup from './Signup'
+
 
 function Login() {
+ 
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,16 +21,16 @@ function Login() {
       password: data.password,
     };
     await axios
-      .post("http://localhost:4001/user/login", userInfo)
+      .post("http://localhost:5200/user/login", userInfo)
       .then((response) => {
         console.log(response.data);
         if (response.data) {
           toast.success("Login Successfully!");
           document.getElementById("my_modal_3").close();
           setTimeout(() => {
-            window.location.reload();
             localStorage.setItem("Users", JSON.stringify(response.data.user));
           }, 1000);
+          navigate("/");
         }
       })
       .catch((error) => {
@@ -49,19 +51,19 @@ function Login() {
             <form method="dialog" onSubmit={handleSubmit(onSubmit)}>
               <Link
                 to="/"
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:text-black"
                 onClick={() => document.getElementById("my_modal_3").close()}
               >
                 ✕
               </Link>
-              <h3 className="font-bold text-lg">Login</h3>
+              <h3 className="font-bold text-lg dark:text-black">Login</h3>
               <div className="mt-4 space-y-2">
-                <span>Email</span>
+                <span className="dark:text-black">Email</span>
                 <br />
                 <input
                   type="text"
                   placeholder="Enter Your Email"
-                  className="w-80 px-3 py-1 rounded-md outline-none"
+                  className="w-80 px-3 py-1 rounded-md outline-none dark:text-black dark:border"
                   {...register("email", { required: true })}
                 />
                 <br />
@@ -72,12 +74,12 @@ function Login() {
 
               {/* Password */}
               <div className="mt-4 space-y-2">
-                <span>Password</span>
+                <span className="dark:text-black">Password</span>
                 <br />
                 <input
                   type="password"
                   placeholder="Enter Password"
-                  className="w-80 px-3 py-1 rounded-md outline-none"
+                  className="w-80 px-3 py-1 rounded-md outline-none dark:text-black dark:border"
                   {...register("password", { required: true })}
                 />{" "}
                 <br />
@@ -90,7 +92,7 @@ function Login() {
                   <button className="bg-blue-500 text-white rounded-md px-3 py-1 hover:bg-blue-700 duration-500">
                     Login
                   </button>
-                  <p>
+                  <p className="dark:text-black">
                     Not registered?{" "}
                     <Link
                       to="/signup"

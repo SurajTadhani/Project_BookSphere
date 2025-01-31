@@ -1,3 +1,4 @@
+
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 
@@ -15,6 +16,7 @@ export const signup = async (req, res) => {
       password: hashPassword,
     });
     await createdUser.save();
+
     res.status(200).json({ message: " User Created successfully", user : {
       _id : createdUser._id,
       fullname : createdUser.fullname,

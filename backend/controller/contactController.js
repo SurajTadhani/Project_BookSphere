@@ -1,4 +1,7 @@
-import Contact from '../models/contact.js'; // Adjust the path as necessary
+
+import { getThankYouEmail } from '../helpers/getThankYouEmail.js';
+import { sendMail } from '../helpers/sendMail.js';
+import Contact from '../models/contact.js'; 
 
 export const createContact = async (req, res) => {
   try {
@@ -11,7 +14,13 @@ export const createContact = async (req, res) => {
 
     const response = { name, email, message };
     await Contact.create(response);
-    return res.status(200).json({ message: "Message sent successfully!" });
+
+    
+    res.status(200).json({ message: "Message sent successfully!" });
+    const userEmail = response.email;
+    console.log("Sending email to:", userEmail);
+    await sendMail(userEmail, "Thank You  we contact you soon", "", getThankYouEmail(name));
+    console.log("Email function executed!");
 
   } catch (error) {
     console.error('Error creating contact:', error);

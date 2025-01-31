@@ -8,7 +8,7 @@ function Course() {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
+        const res = await axios.get("http://localhost:5200/book");
         // console.log(res.data);
         setBook(res.data);
       } catch (error) {
@@ -20,8 +20,8 @@ function Course() {
 
   return (
     <>
-      <div className="container max-w-screen-2xl mt-10">
-        <div className="pt-28 mt-20 items-center justify-center text-center">
+      <div className="container  ">
+        <div className="pt-[150px] items-center justify-center text-center">
           <h1 className="text-2xl  md:text-4xl">
             We're delighted to have you{" "}
             <span className="text-blue-500"> Here! </span>
@@ -36,7 +36,7 @@ function Course() {
             consequatur!
           </p>
           <Link to="/">
-            <button className="mt-6 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 duration-300">
+            <button class="button mt-10 dark:text-white dark:border">
               Back
             </button>
           </Link>

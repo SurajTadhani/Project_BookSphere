@@ -18,7 +18,7 @@ const Contact = () => {
       message: data.message,
     };
     try {
-      await axios.post("http://localhost:4001/api/contact", userContact);
+      await axios.post("http://localhost:5200/api/contact", userContact);
       console.log(data);
 
       toast.success("Message sent successfully!");
@@ -85,7 +85,7 @@ const Contact = () => {
             </span>
           )}
         </div>
-        <button className="btn btn-outline btn-primary w-full lg:w-auto px-10 mt-4">
+        <button class="button dark:text-white dark:border">
           Send
         </button>
       </form>
