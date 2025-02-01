@@ -7,13 +7,13 @@ import userRoute from './routes/user.route.js';
 import contactRoute from './routes/contact.js';
 import bodyParser from 'body-parser';
 
+const app = express();
 dotenv.config();
 
 // PORT
 const PORT = process.env.PORT || 4000;
 
 // Use Express
-const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",  // ✅ Allow frontend during local development
