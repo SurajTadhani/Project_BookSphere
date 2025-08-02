@@ -28,11 +28,13 @@ const BookStore = ({ books }) => {
       {selectedBook ? (
         <BookDetails book={selectedBook} onBack={() => setSelectedBook(null)} />
       ) : (
-        <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-          {filteredBooks.map((item) => (
-            <Cards items={item} key={item.id} onReadNow={handleBookSelect} />
-          ))}
-        </div>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' key="books-grid">
+  {filteredBooks.map((item) => (
+    <Cards items={item} key={item._id} onReadNow={handleBookSelect} />
+  ))}
+</div>
+
+
       )}
     </div>
   );
