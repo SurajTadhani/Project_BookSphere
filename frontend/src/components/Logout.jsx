@@ -13,7 +13,7 @@ export default function Logout() {
       
     
 
-      await axios.get("https://project-book-sphere-backend.vercel.app/user/logout", {
+      await axios.get("https://project-booksphere.onrender.com/user/logout", {
         withCredentials: true 
       });
 

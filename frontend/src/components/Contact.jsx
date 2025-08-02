@@ -22,7 +22,7 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      await axios.post("https://project-book-sphere-backend.vercel.app/api/contact", userContact, {
+      await axios.post("https://project-booksphere.onrender.com/api/contact", userContact, {
         withCredentials: true,
       });
 

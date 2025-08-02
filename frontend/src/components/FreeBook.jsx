@@ -11,7 +11,7 @@ function FreeBook() {
   useEffect(() => {
    const getBook = async () => {
     try {
-   const res =  await axios.get('https://project-book-sphere-backend.vercel.app/book',{
+   const res =  await axios.get('https://project-booksphere.onrender.com/book',{
     withCredentials: true,  // Remove if your backend does not use authentication
 })
   //  console.log(res.data)
