@@ -18,7 +18,8 @@ const PORT = process.env.PORT || 4000;
 
 const allowedOrigins = [
   "http://localhost:5173",  // ✅ Allow frontend during local development
-  "https://project-book-sphere.vercel.app"  // ✅ Allow production frontend
+  "https://project-book-sphere.vercel.app",  // ✅ Allow production frontend
+  "https://booksphere.surajtadhani.com"
 ];
 
 app.use(cors({
