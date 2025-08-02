@@ -52,7 +52,7 @@ function Navigation({ searchQuery, onSearchChange }) {
   };
 
   const navItems = (
-    <>
+    <ul className="flex gap-10 md:flex-row flex-col">
       <li className="dark:text-white">
         <NavLink
           
@@ -94,7 +94,7 @@ function Navigation({ searchQuery, onSearchChange }) {
           Contact
         </NavLink>
       </li>
-    </>
+    </ul>
   );
 
   return (
@@ -137,8 +137,8 @@ function Navigation({ searchQuery, onSearchChange }) {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navItems}</ul>
           </div>
-          <div className="hidden md:block">
-            <label className="input input-bordered flex items-center gap-2">
+          <div className="hidden md:block ">
+            <label className="input input-bordered  flex items-center gap-2">
               <input
                 type="text"
                 className="grow"
