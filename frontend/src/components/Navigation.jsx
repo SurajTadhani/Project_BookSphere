@@ -44,7 +44,8 @@ function Navigation({ searchQuery, onSearchChange }) {
     try {
     
       setAuthUser(null);     
-      localStorage.removeItem("authToken");
+      localStorage.removeItem("userToken");
+      localStorage.removeItem("Users");
       navigate("/");
     } catch (error) {
       console.error("Logout error:", error);
@@ -76,12 +77,12 @@ function Navigation({ searchQuery, onSearchChange }) {
       </li>
       <li className="dark:text-white">
         <NavLink
-          to="/courses"
+          to="/books"
           className={({ isActive }) =>
             isActive ? "dark:border-white border-b-2 border-black dark:text-white" : "text-gray-500"
           }
         >
-          Courses
+          Books
         </NavLink>
       </li>
       <li className="dark:text-white">

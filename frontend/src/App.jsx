@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/AuthProviders";
 import Layout from "./components/Layout"
 import Login from "./components/Login";
+import BookDetails from "./components/BookDetails";
 
 
 function App() {
@@ -21,8 +22,12 @@ function App() {
 
           <Route path="/" element={<Home />} />
           <Route
-            path="/courses"
+            path="/books"
             element={authUser ? <Courses /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/book/details/:id"
+            element={authUser ? <BookDetails /> : <Navigate to="/login" />}
           />
           <Route
             path="/about"
