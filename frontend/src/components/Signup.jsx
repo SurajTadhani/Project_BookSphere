@@ -1,14 +1,12 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import Login from "./Login";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 function Signup() {
-
   const navigate = useNavigate();
- 
+  const [loading, setLoading] = useState(false); // <-- Loading state
 
   const {
     register,
@@ -24,6 +22,7 @@ function Signup() {
     };
 
     try {
+      setLoading(true); // Start loading
       const response = await axios.post(
         "https://project-book-sphere-backend.vercel.app/user/signup",
         userInfo,
@@ -34,12 +33,14 @@ function Signup() {
 
       if (response.data) {
         toast.success("Signup Successfully!");
-        navigate('/login')
+        navigate("/login");
       }
     } catch (error) {
       if (error.response) {
         toast.error("Error: " + error.response.data.message);
       }
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
@@ -48,7 +49,6 @@ function Signup() {
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md dark:bg-white">
         <h2 className="text-2xl font-bold mb-6 text-center text-black">Signup</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-
           {/* Full Name */}
           <div className="mb-4">
             <label className="block text-black mb-1">Name</label>
@@ -95,9 +95,12 @@ function Signup() {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 duration-300"
+              disabled={loading}
+              className={`${
+                loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"
+              } text-white px-4 py-2 rounded duration-300`}
             >
-              Signup
+              {loading ? "Signing up..." : "Signup"}
             </button>
             <p className="text-black">
               Already have an account?{" "}

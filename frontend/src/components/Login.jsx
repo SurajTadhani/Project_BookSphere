@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthProviders";
 
 function Login() {
   const navigate = useNavigate();
+  const [authUser, setAuthUser] = useAuth();
+  const [loading, setLoading] = useState(false); // ← new loading state
+
   const {
     register,
     handleSubmit,
@@ -19,6 +23,7 @@ function Login() {
     };
 
     try {
+      setLoading(true); // ← start loading
       const response = await axios.post(
         "https://project-book-sphere-backend.vercel.app/user/login",
         userInfo,
@@ -31,12 +36,15 @@ function Login() {
         toast.success("Login Successfully!");
         localStorage.setItem("Users", JSON.stringify(response.data.user));
         localStorage.setItem("userToken", response.data.userToken);
+        setAuthUser(response.data.user);
         navigate("/");
       }
     } catch (error) {
       if (error.response) {
         toast.error("Error: " + error.response.data.message);
       }
+    } finally {
+      setLoading(false); // ← end loading
     }
   };
 
@@ -78,10 +86,14 @@ function Login() {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 duration-300"
+              className={`px-4 py-2 rounded text-white transition duration-300 ${
+                loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"
+              }`}
+              disabled={loading}
             >
-              Login
+              {loading ? "Logging in..." : "Login"}
             </button>
+
             <p className="text-black">
               Not registered?{" "}
               <Link to="/signup" className="text-blue-500 underline">

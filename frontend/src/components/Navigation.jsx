@@ -25,7 +25,7 @@ function Navigation({ searchQuery, onSearchChange }) {
 
   const [sticky, setSticky] = useState(false);
 
-  // Memoize handleScroll to ensure reference consistency
+
   const handleScroll = () => {
     setSticky(window.scrollY > 0);
   };
@@ -35,10 +35,21 @@ function Navigation({ searchQuery, onSearchChange }) {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      // Properly remove the event listener
+      
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); // Dependency array ensures the effect runs once
+  }, []); 
+
+    const handleLogout = async () => {
+    try {
+    
+      setAuthUser(null);     
+      localStorage.removeItem("authToken");
+      navigate("/");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   const navItems = (
     <>
@@ -166,11 +177,18 @@ function Navigation({ searchQuery, onSearchChange }) {
         )}
       </label>
     </div>
-          {authUser ? (
-            <Logout />
-          ) : (
-            <Login />
-          )}
+           <div className="navbar-end space-x-3">
+      {/* other items */}
+      {authUser ? (
+        <button onClick={handleLogout} className="btn btn-outline btn-sm">
+          Logout
+        </button>
+      ) : (
+        <NavLink to="/login" className="btn btn-primary btn-sm">
+          Login
+        </NavLink>
+      )}
+    </div>
         </div>
       </div>
     </div>
