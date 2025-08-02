@@ -33,7 +33,12 @@ export const signup = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const email = req.body.email?.trim();
+    const password = req.body.password;
+
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required" });
+    }
 
     const user = await User.findOne({ email });
     if (!user) {
@@ -45,27 +50,30 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid Username or Password" });
     }
 
-    // ✅ Generate JWT token
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 
-    const sendUser = {
- _id: user._id,
-        fullname: user.fullname,
-        email: user.email,
-    }
-
-    // ✅ Send response with token and user data
-    res.status(200).json({
-      message: "Login Successful!",
-      user:sendUser,
-      userToken: token, 
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
+    const sendUser = {
+      _id: user._id,
+      fullname: user.fullname,
+      email: user.email,
+    };
+
+    res.status(200).json({
+      message: "Login Successful!",
+      user: sendUser,
+    });
   } catch (error) {
-    console.error("Error:", error.message);
-    res.status(500).json({ message: "Internal Server Error" });
+    console.error("Login error:", error);
+    res.status(500).json({ message: "Something went wrong. Please try again later." });
   }
 };
 

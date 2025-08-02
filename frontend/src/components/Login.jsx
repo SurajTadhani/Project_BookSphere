@@ -100,7 +100,7 @@ function Login() {
               loading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
             }`}
           >
-            {loading ? "Logging in..." : "Sign In"}
+            {loading ? "Logging in..." : "Login"}
           </button>
 
           {/* Signup Link */}
