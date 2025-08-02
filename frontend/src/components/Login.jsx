@@ -1,17 +1,14 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-
 function Login() {
- 
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
 
@@ -20,97 +17,81 @@ function Login() {
       email: data.email,
       password: data.password,
     };
-    await axios
-      .post("https://project-book-sphere-backend.vercel.app/user/login", userInfo,{
-        withCredentials: true,  // Remove if your backend does not use authentication
-    })
-      .then((response) => {
-        console.log(response.data);
-        if (response.data) {
-          toast.success("Login Successfully!");
-          document.getElementById("my_modal_3").close();
-          setTimeout(() => {
-            localStorage.setItem("Users", JSON.stringify(response.data.user));
-          }, 1000);
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-      
-        if (error.response) {
-          console.log(error);
-          toast.error("Error: " + error.response.data.message);
-          setTimeout(() => {},2000)
-        }
-      });
-  };
-  return (
-    <>
-      <div>
-        <dialog id="my_modal_3" className="modal">
-          {/* Email */}
-          <div className="modal-box">
-            <form method="dialog" onSubmit={handleSubmit(onSubmit)}>
-              <Link
-                to="/"
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:text-black"
-                onClick={() => document.getElementById("my_modal_3").close()}
-              >
-                ✕
-              </Link>
-              <h3 className="font-bold text-lg dark:text-black">Login</h3>
-              <div className="mt-4 space-y-2">
-                <span className="dark:text-black">Email</span>
-                <br />
-                <input
-                  type="text"
-                  placeholder="Enter Your Email"
-                  className="w-80 px-3 py-1 rounded-md outline-none dark:text-black dark:border"
-                  {...register("email", { required: true })}
-                />
-                <br />
-                {errors.email && (
-                  <span className="text-red-700">This field is required</span>
-                )}
-              </div>
 
-              {/* Password */}
-              <div className="mt-4 space-y-2">
-                <span className="dark:text-black">Password</span>
-                <br />
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  className="w-80 px-3 py-1 rounded-md outline-none dark:text-black dark:border"
-                  {...register("password", { required: true })}
-                />{" "}
-                <br />
-                {errors.password && (
-                  <span className="text-red-700">This field is required</span>
-                )}
-              </div>
-              <div>
-                <div className="flex justify-around mt-6">
-                  <button className="bg-blue-500 text-white rounded-md px-3 py-1 hover:bg-blue-700 duration-500">
-                    Login
-                  </button>
-                  <p className="dark:text-black">
-                    Not registered?{" "}
-                    <Link
-                      to="/signup"
-                      className="underline text-blue-500 cursor-pointer"
-                    >
-                      Signup
-                    </Link>{" "}
-                  </p>
-                    {/* <Signup /> */}
-                </div>
-              </div>
-            </form>
+    try {
+      const response = await axios.post(
+        "https://project-book-sphere-backend.vercel.app/user/login",
+        userInfo,
+        {
+          withCredentials: true,
+        }
+      );
+
+      if (response.data) {
+        toast.success("Login Successfully!");
+        localStorage.setItem("Users", JSON.stringify(response.data.user));
+        localStorage.setItem("userToken", response.data.userToken);
+        navigate("/");
+      }
+    } catch (error) {
+      if (error.response) {
+        toast.error("Error: " + error.response.data.message);
+      }
+    }
+  };
+
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md dark:bg-white">
+        <h2 className="text-2xl font-bold mb-6 text-center text-black">Login</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+
+          {/* Email */}
+          <div className="mb-4">
+            <label className="block text-black mb-1">Email</label>
+            <input
+              type="text"
+              placeholder="Enter Your Email"
+              className="w-full px-4 py-2 border rounded-md dark:text-black"
+              {...register("email", { required: true })}
+            />
+            {errors.email && (
+              <span className="text-red-700">This field is required</span>
+            )}
           </div>
-        </dialog>
+
+          {/* Password */}
+          <div className="mb-4">
+            <label className="block text-black mb-1">Password</label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="w-full px-4 py-2 border rounded-md dark:text-black"
+              {...register("password", { required: true })}
+            />
+            {errors.password && (
+              <span className="text-red-700">This field is required</span>
+            )}
+          </div>
+
+          {/* Submit & Signup Link */}
+          <div className="flex items-center justify-between">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 duration-300"
+            >
+              Login
+            </button>
+            <p className="text-black">
+              Not registered?{" "}
+              <Link to="/signup" className="text-blue-500 underline">
+                Signup
+              </Link>
+            </p>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -22,21 +22,22 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/courses"
-            element={authUser ? <Courses /> : <Navigate to="/signup" />}
+            element={authUser ? <Courses /> : <Navigate to="/login" />}
           />
           <Route
             path="/about"
-            element={authUser ? <About /> : <Navigate to="/signup" />}
+            element={authUser ? <About /> : <Navigate to="/login" />}
           />
           <Route
             path="/contact"
-            element={authUser ? <Contact /> : <Navigate to="/signup" />}
+            element={authUser ? <Contact /> : <Navigate to="/login" />}
           />
          
-          <Route path="/signup" element={<Signup />} />
           
         
           </Route>
+          <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
         </Routes>
         <Toaster />
       </div>
