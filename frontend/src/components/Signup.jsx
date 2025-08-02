@@ -3,10 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Eye, EyeOff } from "lucide-react";
 
 function Signup() {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false); // <-- Loading state
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -22,13 +24,11 @@ function Signup() {
     };
 
     try {
-      setLoading(true); // Start loading
+      setLoading(true);
       const response = await axios.post(
         "https://project-book-sphere-backend.vercel.app/user/signup",
         userInfo,
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
 
       if (response.data) {
@@ -36,79 +36,88 @@ function Signup() {
         navigate("/login");
       }
     } catch (error) {
-      if (error.response) {
-        toast.error("Error: " + error.response.data.message);
-      }
+      toast.error("Error: " + (error.response?.data?.message || "Something went wrong"));
     } finally {
-      setLoading(false); // End loading
+      setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md dark:bg-white">
-        <h2 className="text-2xl font-bold mb-6 text-center text-black">Signup</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black px-4">
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 sm:p-10 transition-all duration-300">
+        <h2 className="text-4xl font-extrabold text-center mb-8 text-gray-800 dark:text-white">
+          Create Account 🚀
+        </h2>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Full Name */}
-          <div className="mb-4">
-            <label className="block text-black mb-1">Name</label>
+          <div>
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+              Full Name
+            </label>
             <input
               type="text"
               placeholder="Enter Your Name"
-              className="w-full px-4 py-2 border rounded-md dark:text-black"
+              className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
               {...register("fullname", { required: true })}
             />
-            {errors.fullname && (
-              <span className="text-red-700">This field is required</span>
-            )}
+            {errors.fullname && <p className="text-red-500 text-sm mt-1">This field is required</p>}
           </div>
 
           {/* Email */}
-          <div className="mb-4">
-            <label className="block text-black mb-1">Email</label>
+          <div>
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+              Email
+            </label>
             <input
               type="email"
               placeholder="Enter Your Email"
-              className="w-full px-4 py-2 border rounded-md dark:text-black"
+              className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
               {...register("email", { required: true })}
             />
-            {errors.email && (
-              <span className="text-red-700">This field is required</span>
-            )}
+            {errors.email && <p className="text-red-500 text-sm mt-1">This field is required</p>}
           </div>
 
           {/* Password */}
-          <div className="mb-4">
-            <label className="block text-black mb-1">Password</label>
+          <div className="relative">
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+              Password
+            </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter Password"
-              className="w-full px-4 py-2 border rounded-md dark:text-black"
+              className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none pr-11 transition-all"
               {...register("password", { required: true })}
             />
-            {errors.password && (
-              <span className="text-red-700">This field is required</span>
-            )}
+            <button
+              type="button"
+              className="absolute top-9 right-3 text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition"
+              onClick={() => setShowPassword(!showPassword)}
+              tabIndex={-1}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+            {errors.password && <p className="text-red-500 text-sm mt-1">This field is required</p>}
           </div>
 
-          {/* Submit */}
-          <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              disabled={loading}
-              className={`${
-                loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"
-              } text-white px-4 py-2 rounded duration-300`}
-            >
-              {loading ? "Signing up..." : "Signup"}
-            </button>
-            <p className="text-black">
-              Already have an account?{" "}
-              <Link to="/login" className="text-blue-500 underline">
-                Login
-              </Link>
-            </p>
-          </div>
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={loading}
+            className={`w-full py-2.5 rounded-lg text-white font-semibold tracking-wide shadow-md transition-all duration-300 ${
+              loading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+            }`}
+          >
+            {loading ? "Creating account..." : "Signup"}
+          </button>
+
+          {/* Login Redirect */}
+          <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-4">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-500 font-medium hover:underline">
+              Login
+            </Link>
+          </p>
         </form>
       </div>
     </div>
