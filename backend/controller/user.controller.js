@@ -33,8 +33,8 @@ export const signup = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const email = req.body.email;
-    const password = req.body.password;
+  const {email, password } = req.body
+  console.log(email,password)
 
     if (!email || !password) {
       return res.status(400).json({ message: "Email and password are required" });
@@ -55,7 +55,7 @@ export const login = async (req, res) => {
     });
 
     res.cookie("token", token, {
-      httpOnly: true,
+      httpOnly: false,
       secure: true,
       sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
