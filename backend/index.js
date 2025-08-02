@@ -8,6 +8,7 @@ import contactRoute from './routes/contact.js';
 import bodyParser from 'body-parser';
 
 const app = express();
+
 dotenv.config();
 
 // PORT
