@@ -33,7 +33,7 @@ export const signup = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const email = req.body.email?.trim();
+    const email = req.body.email;
     const password = req.body.password;
 
     if (!email || !password) {
@@ -70,6 +70,7 @@ export const login = async (req, res) => {
     res.status(200).json({
       message: "Login Successful!",
       user: sendUser,
+      userToken : token
     });
   } catch (error) {
     console.error("Login error:", error);
